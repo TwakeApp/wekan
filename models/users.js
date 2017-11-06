@@ -38,6 +38,10 @@ Users.attachSchema(new SimpleSchema({
       }
     },
   },
+  group :{
+      type : String,
+      optional : true,
+  },
   profile: {
     type: Object,
     optional: true,
@@ -95,6 +99,10 @@ Users.attachSchema(new SimpleSchema({
     type: String,
     optional: true,
   },
+  'profile.group':{
+      type : String,
+      optional:true,
+  },
   services: {
     type: Object,
     optional: true,
@@ -120,10 +128,10 @@ Users.attachSchema(new SimpleSchema({
 
 // Search a user in the complete server database by its name or username. This
 // is used for instance to add a new user to a board.
-const searchInFields = ['username', 'profile.fullname'];
+const searchInFields = ['profile.fullname'];
 Users.initEasySearch(searchInFields, {
   use: 'mongo-db',
-  returnFields: [...searchInFields, 'profile.avatarUrl'],
+  returnFields: [...searchInFields, 'username', 'profile.avatarUrl','profile.group'],
 });
 
 if (Meteor.isClient) {
@@ -224,6 +232,11 @@ Users.helpers({
     const profile = this.profile || {};
     return profile.language || 'en';
   },
+  getGroup(){
+      const profile = this.profile;
+      return profile;
+  }
+
 });
 
 Users.mutations({
@@ -461,9 +474,8 @@ if (Meteor.isServer) {
     if (!invitationCode) {
       throw new Meteor.Error('error-invitation-code-not-exist', 'The invitation code doesn\'t exist');
     } else {
-      user.profile = { icode: options.profile.invitationcode };
+      user.profile = options.profile;
     }
-
     return user;
   });
 }
@@ -664,4 +676,3 @@ if (Meteor.isServer) {
     });
   });
 }
-

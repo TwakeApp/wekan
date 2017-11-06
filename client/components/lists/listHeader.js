@@ -1,9 +1,4 @@
 BlazeComponent.extendComponent({
-  canSeeAddCard() {
-    const list = Template.currentData();
-    return !list.getWipLimit('enabled') || list.getWipLimit('soft') || !this.reachedWipLimit();
-  },
-
   editTitle(evt) {
     evt.preventDefault();
     const newTitle = this.childComponents('inlinedForm')[0].getValue().trim();
@@ -18,13 +13,16 @@ BlazeComponent.extendComponent({
     return list.findWatcher(Meteor.userId());
   },
 
-  limitToShowCardsCount() {
-    return Meteor.user().getLimitToShowCardsCount();
+  isWipLimitEnabled() {
+    const wipLimit = this.currentData().getWipLimit();
+    if(!wipLimit) {
+      return 0;
+    }
+    return wipLimit.enabled && wipLimit.value > 0;
   },
 
-  reachedWipLimit() {
-    const list = Template.currentData();
-    return list.getWipLimit('enabled') && list.getWipLimit('value') <= list.cards().count();
+  limitToShowCardsCount() {
+    return Meteor.user().getLimitToShowCardsCount();
   },
 
   showCardsCountForList(count) {
@@ -84,7 +82,7 @@ BlazeComponent.extendComponent({
     const list = Template.currentData();
     const limit = parseInt(Template.instance().$('.wip-limit-value').val(), 10);
 
-    if(limit < list.cards().count() && !list.getWipLimit('soft')){
+    if(limit < list.cards().count()){
       Template.instance().$('.wip-limit-error').click();
     } else {
       Meteor.call('applyWipLimit', list._id, limit);
@@ -92,26 +90,13 @@ BlazeComponent.extendComponent({
     }
   },
 
-  enableSoftLimit() {
-    const list = Template.currentData();
-
-    if(list.getWipLimit('soft') && list.getWipLimit('value') < list.cards().count()){
-      list.setWipLimit(list.cards().count());
-    }
-    Meteor.call('enableSoftLimit', Template.currentData()._id);
-  },
-
   enableWipLimit() {
     const list = Template.currentData();
     // Prevent user from using previously stored wipLimit.value if it is less than the current number of cards in the list
-    if(!list.getWipLimit('enabled') && list.getWipLimit('value') < list.cards().count()){
+    if(list.getWipLimit() && !list.getWipLimit('enabled') && list.getWipLimit('value') < list.cards().count()){
       list.setWipLimit(list.cards().count());
     }
     Meteor.call('enableWipLimit', list._id);
-  },
-
-  isWipLimitSoft() {
-    return Template.currentData().getWipLimit('soft');
   },
 
   isWipLimitEnabled() {
@@ -127,7 +112,6 @@ BlazeComponent.extendComponent({
       'click .js-enable-wip-limit': this.enableWipLimit,
       'click .wip-limit-apply': this.applyWipLimit,
       'click .wip-limit-error': Popup.open('wipLimitError'),
-      'click .materialCheckBox': this.enableSoftLimit,
     }];
   },
 }).register('setWipLimitPopup');

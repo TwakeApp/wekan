@@ -49,15 +49,23 @@ Lists.attachSchema(new SimpleSchema({
   'wipLimit.value': {
     type: Number,
     decimal: false,
-    defaultValue: 1,
+    autoValue() {
+      if(this.isInsert){
+        return 0;
+      }
+      return this.value;
+    },
+    optional: true,
   },
-  'wipLimit.enabled': {
+  'wipLimit.enabled':{
     type: Boolean,
-    defaultValue: false,
-  },
-  'wipLimit.soft': {
-    type: Boolean,
-    defaultValue: false,
+    autoValue() {
+      if(this.isInsert){
+        return false;
+      }
+      return this.value;
+    },
+    optional: true,
   },
 }));
 
@@ -115,10 +123,6 @@ Lists.mutations({
     return { $set: { archived: false } };
   },
 
-  toggleSoftLimit(toggle) {
-    return { $set: { 'wipLimit.soft': toggle } };
-  },
-
   toggleWipLimit(toggle) {
     return { $set: { 'wipLimit.enabled': toggle } };
   },
@@ -132,25 +136,17 @@ Meteor.methods({
   applyWipLimit(listId, limit){
     check(listId, String);
     check(limit, Number);
-    if(limit === 0){
-      limit = 1;
-    }
     Lists.findOne({ _id: listId }).setWipLimit(limit);
   },
 
   enableWipLimit(listId) {
     check(listId, String);
     const list = Lists.findOne({ _id: listId });
-    if(list.getWipLimit('value') === 0){
-      list.setWipLimit(1);
+    if(list.getWipLimit()){ // Necessary check to avoid exceptions for the case where the doc doesn't have the wipLimit field yet set
+      list.toggleWipLimit(!list.getWipLimit('enabled'));
+    } else {
+      list.toggleWipLimit(true); // First time toggle is always to 'true' because default is 'false'
     }
-    list.toggleWipLimit(!list.getWipLimit('enabled'));
-  },
-
-  enableSoftLimit(listId) {
-    check(listId, String);
-    const list = Lists.findOne({ _id: listId });
-    list.toggleSoftLimit(!list.getWipLimit('soft'));
   },
 });
 

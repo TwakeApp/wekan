@@ -1,6 +1,8 @@
 const passwordField = AccountsTemplates.removeField('password');
 const emailField = AccountsTemplates.removeField('email');
 
+
+
 AccountsTemplates.addFields([{
   _id: 'username',
   type: 'text',
@@ -30,7 +32,7 @@ AccountsTemplates.configure({
     } else {
       FlowRouter.go(homePage);
     }
-  },
+  }
 });
 
 ['signIn', 'signUp', 'resetPwd', 'forgotPwd', 'enrollAccount'].forEach(

@@ -36,7 +36,7 @@ services:
       - 80:80
     environment:
       - MONGO_URL=mongodb://wekandb:27017/wekan
-      - ROOT_URL=http://localhost
+      - ROOT_URL=http://127.0.0.1
     depends_on:
       - wekandb
 

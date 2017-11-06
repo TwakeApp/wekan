@@ -1,7 +1,13 @@
 Meteor.startup(() => {
 
   Accounts.validateLoginAttempt(function (options) {
-    return !options.user.loginDisabled;
+      return true;
+      if(options.user){
+          return !options.user.loginDisabled;
+      }
+      else{
+          return false;
+      }
   });
 
   Authentication = {};
@@ -54,4 +60,3 @@ Meteor.startup(() => {
   };
 
 });
-

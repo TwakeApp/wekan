@@ -114,6 +114,7 @@ class Exporter {
         'profile.fullname': 1,
         'profile.initials': 1,
         'profile.avatarUrl': 1,
+        'profile.group' : 1,
       },
     };
     result.users = Users.find(byUserIds, userFields).fetch().map((user) => {

@@ -63,4 +63,3 @@ Meteor.startup(() => {
   }
   Winston.log('info', 'Logger is completly instanciate');
 });
-

@@ -5,12 +5,10 @@ template(name="listHeader")
     else
       h2.list-header-name(
         class="{{#if currentUser.isBoardMember}}js-open-inlined-form is-editable{{/if}}")
-        = title 
-        if wipLimit.enabled
-         |&nbsp;(
-         span(class="{{#if reachedWipLimit}}highlight{{/if}}") {{cards.count}}
-         |/#{wipLimit.value})
-        
+        = title
+        if isWipLimitEnabled
+          span
+            | ({{cards.count}}/#{wipLimit.value})
         if showCardsCountForList cards.count
           = cards.count
           span.lowercase
@@ -20,7 +18,7 @@ template(name="listHeader")
           i.list-header-watch-icon.fa.fa-eye
         div.list-header-menu
           unless currentUser.isCommentOnly
-            if canSeeAddCard
+            unless isWipLimitEnabled
               a.js-add-card.fa.fa-plus.list-header-plus-icon
             a.fa.fa-navicon.js-open-list-menu
 
@@ -78,20 +76,16 @@ template(name="listDeletePopup")
 
 template(name="setWipLimitPopup")
   #js-wip-limit-edit
-    label {{_ 'set-wip-limit-value'}}
+    lable {{_ 'set-wip-limit-value'}}
     ul.pop-over-list
       li: a.js-enable-wip-limit {{_ 'enable-wip-limit'}} 
         if isWipLimitEnabled  
           i.fa.fa-check
     if isWipLimitEnabled
       p
-        input.wip-limit-value(type="number" value="{{ wipLimitValue }}" min="1" max="99")
+        input.wip-limit-value(type="number" value="{{ wipLimitValue }}" min="1" max="99" onkeydown="return false")
         input.wip-limit-apply(type="submit" value="{{_ 'apply'}}")
         input.wip-limit-error
-      p
-        .soft-wip-limit
-          .materialCheckBox(class="{{#if isWipLimitSoft}}is-checked{{/if}}")
-        label {{_ 'soft-wip-limit'}}
         
 template(name="wipLimitErrorPopup")
   .wip-limit-invalid

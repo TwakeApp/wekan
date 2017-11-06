@@ -162,6 +162,11 @@ Template.memberPopup.events({
   }),
 });
 
+Template.addMemberPopup.helpers({
+  isInGroup(idGroup){
+    return ( idGroup!=undefined && Meteor.user().profile.group==idGroup);
+  },
+});
 Template.removeMemberPopup.helpers({
   user() {
     return Users.findOne(this.userId);
@@ -302,6 +307,7 @@ BlazeComponent.extendComponent({
   events() {
     return [{
       'keyup input'() {
+          console.log("keyUp");
         this.setError('');
       },
       'click .js-select-member'() {

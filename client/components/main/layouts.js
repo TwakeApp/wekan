@@ -10,12 +10,52 @@ const i18nTagToT9n = (i18nTag) => {
   return i18nTag;
 };
 
+Meteor.startup(() => {
+    function $_GET(param) {
+        var vars = {};
+        window.location.href.replace( location.hash, '' ).replace(
+            /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+            function( m, key, value ) { // callback
+                vars[key] = value !== undefined ? value : '';
+            }
+        );
+
+        if ( param ) {
+            return vars[param] ? vars[param] : null;
+        }
+        return vars;
+    }
+
+    if($_GET("token")){
+        AccountsTemplates.logout();
+        Meteor.call("connectServer",$_GET("token"),$_GET("groupId"), function(error,result){
+            if(error){
+                console.log(error);
+            }
+            else{
+                Meteor.loginWithPassword(result.username,result.password,function(err){
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        FlowRouter.go('home');
+                    }
+                });
+            }
+        });
+    }
+
+});
+
+
 Template.userFormsLayout.onRendered(() => {
-  const i18nTag = navigator.language;
-  if (i18nTag) {
+
+
+    const i18nTag = navigator.language;
+    if (i18nTag) {
     T9n.setLanguage(i18nTagToT9n(i18nTag));
-  }
-  EscapeActions.executeAll();
+    }
+    EscapeActions.executeAll();
 });
 
 Template.userFormsLayout.helpers({

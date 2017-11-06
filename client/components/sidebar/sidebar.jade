@@ -114,14 +114,15 @@ template(name="addMemberPopup")
   else
     ul.pop-over-list
       +esEach(index="users")
-        li.item.js-member-item(class="{{#if isBoardMember}}disabled{{/if}}")
-          a.name.js-select-member(title="{{profile.fullname}} ({{username}})")
-            +userAvatar(userId=_id esSearch=true)
-            span.full-name
-              = profile.fullname
-              | (<span class="username">{{username}}</span>)
-            if isBoardMember
-              .quiet ({{_ 'joined'}})
+        if isInGroup profile.group
+          li.item.js-member-item(class="{{#if isBoardMember}}disabled{{/if}}")
+            a.name.js-select-member(title="{{profile.fullname}}")
+              +userAvatar(userId=_id esSearch=true)
+              span.full-name
+                = profile.fullname
+                | (<span class="username">{{username}}</span>)
+              if isBoardMember
+                .quiet ({{_ 'joined'}})
 
       +ifEsIsSearching(index='users')
         +spinner
@@ -129,7 +130,7 @@ template(name="addMemberPopup")
       +ifEsHasNoResults(index="users")
         .manage-member-section
           p.quiet {{_ 'no-results'}}
-    button.js-email-invite.primary.full {{_ 'email-invite'}}
+    //button.js-email-invite.primary.full {{_ 'email-invite'}}
 
 template(name="changePermissionsPopup")
   ul.pop-over-list

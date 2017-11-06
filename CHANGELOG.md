@@ -1,29 +1,3 @@
-# v0.54 2017-11-02 Wekan release
-
-This release adds the following new features:
-
-* [Soft WIP Limit](https://github.com/wekan/wekan/pull/1319).
-
-Thanks to GitHub users amadilsons and xet7 for their contributions.
-
-# v0.53 2017-11-02 Wekan release
-
-(This was canceled, it had some missing version numbers).
-
-# v0.52 2017-10-31 Wekan release
-
-This release adds the following new features:
-
-* [Permit editing WIP limit](https://github.com/wekan/wekan/pull/1312);
-* [Image attachment resize on smaller screens and swipebox](https://github.com/wekan/wekan/pull/1315);
-* [Add iPhone favicon for Wekan](https://github.com/wekan/wekan/issues/1317).
-
-and fixes the following bugs:
-
-* [Members do not get included on board import from Wekan](https://github.com/wekan/wekan/pull/1316).
-
-Thanks to GitHub users brooksbecton, guillaumebriday, nztqa, ocdtrekkie and Tentoe for their contributions.
-
 # v0.51 2017-10-25 Wekan release
 
 This release adds the following new features:
