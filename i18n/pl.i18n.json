@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Usunąć listę?",
     "remove-member": "Usuń członka",
     "remove-member-from-card": "Usuń z karty",
-    "remove-member-pop": "Remove __name__ (__username__) from __boardTitle__? The member will be removed from all cards on this board. They will receive a notification.",
+    "remove-member-pop": "Remove __name__   from __boardTitle__? The member will be removed from all cards on this board. They will receive a notification.",
     "removeMemberPopup-title": "Usunąć członka?",
     "rename": "Zmień nazwę",
     "rename-board": "Zmień nazwę tablicy",

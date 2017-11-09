@@ -306,7 +306,7 @@
     "listDeletePopup-title": "למחוק את הרשימה?",
     "remove-member": "הסרת חבר",
     "remove-member-from-card": "הסרה מהכרטיס",
-    "remove-member-pop": "להסיר את __name__ (__username__) מ__boardTitle__? התהליך יגרום להסרת החבר מכל הכרטיסים בלוח זה. תישלח הודעה אל החבר.",
+    "remove-member-pop": "להסיר את __name__   מ__boardTitle__? התהליך יגרום להסרת החבר מכל הכרטיסים בלוח זה. תישלח הודעה אל החבר.",
     "removeMemberPopup-title": "להסיר חבר?",
     "rename": "שינוי שם",
     "rename-board": "שינוי שם ללוח",

@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Liste silinsin mi?",
     "remove-member": "Üyeyi Çıkar",
     "remove-member-from-card": "Karttan Çıkar",
-    "remove-member-pop": "__boardTitle__ panosundan __name__ (__username__) çıkarılsın mı? Üye, bu panodaki tüm kartlardan çıkarılacak. Panodan çıkarıldığı üyeye bildirilecektir.",
+    "remove-member-pop": "__boardTitle__ panosundan __name__   çıkarılsın mı? Üye, bu panodaki tüm kartlardan çıkarılacak. Panodan çıkarıldığı üyeye bildirilecektir.",
     "removeMemberPopup-title": "Üye çıkarılsın mı?",
     "rename": "Yeniden adlandır",
     "rename-board": "Panonun Adını Değiştir",

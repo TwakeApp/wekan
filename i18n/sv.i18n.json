@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Ta bort lista",
     "remove-member": "Ta bort medlem",
     "remove-member-from-card": "Ta bort från kort",
-    "remove-member-pop": "Ta bort __name__ (__username__) från __boardTitle__? Medlemmen kommer att bli borttagen från alla kort i denna anslagstavla. De kommer att få en avisering.",
+    "remove-member-pop": "Ta bort __name__   från __boardTitle__? Medlemmen kommer att bli borttagen från alla kort i denna anslagstavla. De kommer att få en avisering.",
     "removeMemberPopup-title": "Ta bort medlem?",
     "rename": "Byt namn",
     "rename-board": "Byt namn på anslagstavla",

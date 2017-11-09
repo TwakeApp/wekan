@@ -431,23 +431,23 @@ if (Meteor.isServer) {
       user.addInvite(boardId);
 
       try {
-        const params = {
-          user: user.username,
-          inviter: inviter.username,
-          board: board.title,
-          url: board.absoluteUrl(),
-        };
-        const lang = user.getLanguage();
-        Email.send({
-          to: user.emails[0].address.toLowerCase(),
-          from: Accounts.emailTemplates.from,
-          subject: TAPi18n.__('email-invite-subject', params, lang),
-          text: TAPi18n.__('email-invite-text', params, lang),
-        });
-      } catch (e) {
-        throw new Meteor.Error('email-fail', e.message);
-      }
-      return { username: user.username, email: user.emails[0].address };
+         const params = {
+           user: user.username,
+           inviter: inviter.username,
+           board: board.title,
+           url: board.absoluteUrl(),
+         };
+         const lang = user.getLanguage();
+         Email.send({
+           to: user.emails[0].address.toLowerCase(),
+           from: Accounts.emailTemplates.from,
+           subject: TAPi18n.__('email-invite-subject', params, lang),
+           text: TAPi18n.__('email-invite-text', params, lang),
+         });
+       } catch (e) {
+           return {username : user.username}
+       }
+       return { username: user.username, email: user.emails[0].address };
     },
   });
   Accounts.onCreateUser((options, user) => {
@@ -534,16 +534,6 @@ if (Meteor.isServer) {
       };
 
       fakeUserId.withValue(doc._id, () => {
-        // Insert the Welcome Board
-        Boards.insert({
-          title: TAPi18n.__('welcome-board'),
-          permission: 'private',
-        }, fakeUser, (err, boardId) => {
-
-          ['welcome-list1', 'welcome-list2'].forEach((title) => {
-            Lists.insert({ title: TAPi18n.__(title), boardId }, fakeUser);
-          });
-        });
       });
     });
   }

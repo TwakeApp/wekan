@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Delete List ?",
     "remove-member": "Odebrat uživatele",
     "remove-member-from-card": "Odstranit z karty",
-    "remove-member-pop": "Odstranit __name__ (__username__) z __boardTitle__? Uživatel bude odebrán ze všech karet na tomto tablu. Na tuto skutečnost bude upozorněn.",
+    "remove-member-pop": "Odstranit __name__   z __boardTitle__? Uživatel bude odebrán ze všech karet na tomto tablu. Na tuto skutečnost bude upozorněn.",
     "removeMemberPopup-title": "Odstranit člena?",
     "rename": "Přejmenovat",
     "rename-board": "Přejmenovat tablo",

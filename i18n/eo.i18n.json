@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Delete List ?",
     "remove-member": "Forigi membron",
     "remove-member-from-card": "Forigi de karto",
-    "remove-member-pop": "Remove __name__ (__username__) from __boardTitle__? The member will be removed from all cards on this board. They will receive a notification.",
+    "remove-member-pop": "Remove __name__   from __boardTitle__? The member will be removed from all cards on this board. They will receive a notification.",
     "removeMemberPopup-title": "Remove Member?",
     "rename": "Renomi",
     "rename-board": "Rename Board",

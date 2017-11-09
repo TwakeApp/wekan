@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Excluir Lista ?",
     "remove-member": "Remover Membro",
     "remove-member-from-card": "Remover do Cartão",
-    "remove-member-pop": "Remover __name__ (__username__) de __boardTitle__? O membro será removido de todos os cartões neste quadro e será notificado.",
+    "remove-member-pop": "Remover __name__   de __boardTitle__? O membro será removido de todos os cartões neste quadro e será notificado.",
     "removeMemberPopup-title": "Remover Membro?",
     "rename": "Renomear",
     "rename-board": "Renomear Quadro",

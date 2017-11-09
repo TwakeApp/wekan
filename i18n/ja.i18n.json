@@ -306,7 +306,7 @@
     "listDeletePopup-title": "リストを削除しますか？",
     "remove-member": "メンバーを外す",
     "remove-member-from-card": "カードから外す",
-    "remove-member-pop": "__boardTitle__ から __name__ (__username__) を外しますか？メンバーはこのボードのすべてのカードから外れ、通知を受けます。",
+    "remove-member-pop": "__boardTitle__ から __name__   を外しますか？メンバーはこのボードのすべてのカードから外れ、通知を受けます。",
     "removeMemberPopup-title": "メンバーを外しますか？",
     "rename": "名前変更",
     "rename-board": "ボード名の変更",

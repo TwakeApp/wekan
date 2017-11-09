@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Delete List ?",
     "remove-member": "Tag eltávolítása",
     "remove-member-from-card": "Eltávolítás a kártyáról",
-    "remove-member-pop": "Remove __name__ (__username__) from __boardTitle__? The member will be removed from all cards on this board. They will receive a notification.",
+    "remove-member-pop": "Remove __name__   from __boardTitle__? The member will be removed from all cards on this board. They will receive a notification.",
     "removeMemberPopup-title": "Eltávolítja a tagot?",
     "rename": "Átnevez",
     "rename-board": "Tábla átnevezése",

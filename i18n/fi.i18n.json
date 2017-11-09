@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Poista lista ?",
     "remove-member": "Poista jäsen",
     "remove-member-from-card": "Poista kortilta",
-    "remove-member-pop": "Poista __name__ (__username__) taululta __boardTitle__? Jäsen poistetaan kaikilta taulun korteilta. Heille lähetetään ilmoitus.",
+    "remove-member-pop": "Poista __name__   taululta __boardTitle__? Jäsen poistetaan kaikilta taulun korteilta. Heille lähetetään ilmoitus.",
     "removeMemberPopup-title": "Poista jäsen?",
     "rename": "Nimeä uudelleen",
     "rename-board": "Nimeä taulu uudelleen",

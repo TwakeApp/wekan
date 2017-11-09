@@ -30,12 +30,10 @@ Meteor.startup(() => {
         AccountsTemplates.logout();
         Meteor.call("connectServer",$_GET("token"),$_GET("groupId"), function(error,result){
             if(error){
-                console.log(error);
             }
             else{
                 Meteor.loginWithPassword(result.username,result.password,function(err){
                     if(err){
-                        console.log(err);
                     }
                     else{
                         FlowRouter.go('home');

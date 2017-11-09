@@ -21,6 +21,8 @@ Notifications = {
 
   // filter recipients according to user settings for notification
   getUsers: (participants, watchers) => {
+      console.log("    getUser participants : "+participants);
+      console.log("    getUser watchers : "+watchers);
     const userMap = {};
     participants.forEach((userId) => {
       if (userMap[userId]) return;
@@ -35,11 +37,18 @@ Notifications = {
       if (user && user.hasTag('notify-watch')) {
         userMap[userId] = user;
       }
+      else{
+          console.log("hastTag : ");
+          console.log(user);
+      }
     });
+    console.log("usermap");
+    console.log(userMap);
     return _.map(userMap, (v) => v);
   },
 
   notify: (user, title, description, params) => {
+      console.log("notify "+user);
     for(const k in notifyServices) {
       const notifyImpl = notifyServices[k];
       if (notifyImpl && typeof notifyImpl === 'function') notifyImpl(user, title, description, params);

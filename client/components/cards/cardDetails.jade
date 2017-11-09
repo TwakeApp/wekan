@@ -148,7 +148,6 @@ template(name="cardMembersPopup")
           +userAvatar(userId=user._id)
           span.full-name
             = user.profile.fullname
-            | (<span class="username">{{ user.username }}</span>)
           if isCardMember
             i.fa.fa-check
 

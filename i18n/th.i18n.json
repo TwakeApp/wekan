@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Delete List ?",
     "remove-member": "ลบสมาชิก",
     "remove-member-from-card": "ลบจากการ์ด",
-    "remove-member-pop": "ลบ __name__ (__username__) จาก __boardTitle__ หรือไม่ สมาชิกจะถูกลบออกจากการ์ดทั้งหมดบนบอร์ดนี้ และพวกเขาจะได้รับการแจ้งเตือน",
+    "remove-member-pop": "ลบ __name__   จาก __boardTitle__ หรือไม่ สมาชิกจะถูกลบออกจากการ์ดทั้งหมดบนบอร์ดนี้ และพวกเขาจะได้รับการแจ้งเตือน",
     "removeMemberPopup-title": "ลบสมาชิกหรือไม่",
     "rename": "ตั้งชื่อใหม่",
     "rename-board": "ตั้งชื่อบอร์ดใหม่",

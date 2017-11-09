@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Delete List ?",
     "remove-member": "حذف عضو",
     "remove-member-from-card": "حذف از کارت",
-    "remove-member-pop": "آیا __name__ (__username__) را از __boardTitle__ حذف می کنید? کاربر از تمام کارت ها در این تخته حذف خواهد شد و آنها ازین اقدام مطلع خواهند شد.",
+    "remove-member-pop": "آیا __name__   را از __boardTitle__ حذف می کنید? کاربر از تمام کارت ها در این تخته حذف خواهد شد و آنها ازین اقدام مطلع خواهند شد.",
     "removeMemberPopup-title": "آیا می خواهید کاربر را حذف کنید؟",
     "rename": "تغیر نام",
     "rename-board": "تغییر نام تخته",

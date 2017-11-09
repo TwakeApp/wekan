@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Verwijder lijst?",
     "remove-member": "Verwijder lid",
     "remove-member-from-card": "Verwijder van kaart",
-    "remove-member-pop": "Verwijder __name__ (__username__) van __boardTitle__? Het lid zal verwijderd worden van alle kaarten op dit bord, en zal een notificatie ontvangen.",
+    "remove-member-pop": "Verwijder __name__   van __boardTitle__? Het lid zal verwijderd worden van alle kaarten op dit bord, en zal een notificatie ontvangen.",
     "removeMemberPopup-title": "Verwijder lid?",
     "rename": "Hernoem",
     "rename-board": "Hernoem bord",

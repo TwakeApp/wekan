@@ -1,5 +1,5 @@
 template(name="userAvatar")
-  a.member.js-member(title="{{userData.profile.fullname}} ({{userData.username}})")
+  a.member.js-member(title="{{userData.profile.fullname}}")
     if userData.profile.avatarUrl
       img.avatar.avatar-image(src=userData.profile.avatarUrl)
     else
@@ -25,16 +25,12 @@ template(name="userPopup")
       +userAvatar(userId=user._id)
       .info
         h3= user.profile.fullname
-        p.quiet @{{ user.username }}
 
 template(name="memberName")
   if showBoth
     = user.profile.fullname
-    | ({{ user.username }})
   else if user.profile.fullname
     = user.profile.fullname
-  else
-    = user.username
 
 template(name="changeAvatarPopup")
   if error.get
@@ -70,7 +66,6 @@ template(name="cardMemberPopup")
       +userAvatar(userId=user._id showEdit=true)
       .info
         h3= user.profile.fullname
-        p.quiet @{{ user.username }}
     if currentUser.isBoardMember
       ul.pop-over-list
         li: a.js-remove-member {{_ 'remove-member-from-card'}}

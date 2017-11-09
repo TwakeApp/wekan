@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Esborrar la llista?",
     "remove-member": "Elimina membre",
     "remove-member-from-card": "Elimina de la fitxa",
-    "remove-member-pop": "Eliminar  __name__ (__username__) de __boardTitle__ ? El membre serà eliminat de totes les fitxes d'aquest tauler. Ells rebran una notificació.",
+    "remove-member-pop": "Eliminar  __name__   de __boardTitle__ ? El membre serà eliminat de totes les fitxes d'aquest tauler. Ells rebran una notificació.",
     "removeMemberPopup-title": "Vols suprimir el membre?",
     "rename": "Canvia el nom",
     "rename-board": "Canvia el nom del tauler",

@@ -102,6 +102,8 @@ if (Meteor.isServer) {
       const card = activity.card();
       participants = _.union(participants, [card.userId], card.members || []);
       watchers = _.union(watchers, card.watchers || []);
+      console.log("card members : "+participants);
+      console.log("card watcher : "+watchers);
       params.card = card.title;
       title = 'act-withCardTitle';
       params.url = card.absoluteUrl();
@@ -142,6 +144,7 @@ if (Meteor.isServer) {
     }
 
     Notifications.getUsers(participants, watchers).forEach((user) => {
+        console.log("    user to notify : "+user);
       Notifications.notify(user, title, description, params);
     });
 

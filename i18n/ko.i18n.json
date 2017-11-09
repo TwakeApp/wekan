@@ -306,7 +306,7 @@
     "listDeletePopup-title": "리스트를 삭제합니까?",
     "remove-member": "멤버 제거",
     "remove-member-from-card": "카드에서 제거",
-    "remove-member-pop": "__boardTitle__에서 __name__(__username__) 을 제거합니까? 이 보드의 모든 카드에서 제거됩니다. 해당 내용을 __name__(__username__) 은(는) 알림으로 받게됩니다.",
+    "remove-member-pop": "__boardTitle__에서 __name__  을 제거합니까? 이 보드의 모든 카드에서 제거됩니다. 해당 내용을 __name__  은(는) 알림으로 받게됩니다.",
     "removeMemberPopup-title": "멤버를 제거합니까?",
     "rename": "새이름",
     "rename-board": "보드 이름 바꾸기",

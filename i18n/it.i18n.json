@@ -306,7 +306,7 @@
     "listDeletePopup-title": "Eliminare Lista?",
     "remove-member": "Rimuovi utente",
     "remove-member-from-card": "Rimuovi dalla scheda",
-    "remove-member-pop": "Rimuovere __name__ (__username__) da __boardTitle__? L'utente sarà rimosso da tutte le schede in questa bacheca. Riceveranno una notifica.",
+    "remove-member-pop": "Rimuovere __name__   da __boardTitle__? L'utente sarà rimosso da tutte le schede in questa bacheca. Riceveranno una notifica.",
     "removeMemberPopup-title": "Rimuovere membro?",
     "rename": "Rinomina",
     "rename-board": "Rinomina bacheca",

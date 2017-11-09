@@ -306,7 +306,7 @@
     "listDeletePopup-title": "حذف القائمة ؟",
     "remove-member": "حذف العضو",
     "remove-member-from-card": "حذف من البطاقة",
-    "remove-member-pop": "حذف __name__ (__username__) من __boardTitle__ ? سيتم حذف هذا العضو من جميع بطاقة اللوحة مع إرسال إشعار له بذاك.",
+    "remove-member-pop": "حذف __name__   من __boardTitle__ ? سيتم حذف هذا العضو من جميع بطاقة اللوحة مع إرسال إشعار له بذاك.",
     "removeMemberPopup-title": "حذف العضو ?",
     "rename": "إعادة التسمية",
     "rename-board": "إعادة تسمية اللوحة",

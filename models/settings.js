@@ -99,25 +99,7 @@ if (Meteor.isServer) {
   function sendInvitationEmail (_id){
     const icode = InvitationCodes.findOne(_id);
     const author = Users.findOne(Meteor.userId());
-    try {
-      const params = {
-        email: icode.email,
-        inviter: Users.findOne(icode.authorId).username,
-        user: icode.email.split('@')[0],
-        icode: icode.code,
-        url: FlowRouter.url('sign-up'),
-      };
-      const lang = author.getLanguage();
-      Email.send({
-        to: icode.email,
-        from: Accounts.emailTemplates.from,
-        subject: TAPi18n.__('email-invite-register-subject', params, lang),
-        text: TAPi18n.__('email-invite-register-text', params, lang),
-      });
-    } catch (e) {
-      InvitationCodes.remove(_id);
-      throw new Meteor.Error('email-fail', e.message);
-    }
+
   }
 
   Meteor.methods({
