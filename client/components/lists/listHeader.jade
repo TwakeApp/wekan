@@ -18,8 +18,6 @@ template(name="listHeader")
           i.list-header-watch-icon.fa.fa-eye
         div.list-header-menu
           unless currentUser.isCommentOnly
-            unless isWipLimitEnabled
-              a.js-add-card.fa.fa-plus.list-header-plus-icon
             a.fa.fa-navicon.js-open-list-menu
 
 template(name="editListTitleForm")
@@ -78,15 +76,15 @@ template(name="setWipLimitPopup")
   #js-wip-limit-edit
     lable {{_ 'set-wip-limit-value'}}
     ul.pop-over-list
-      li: a.js-enable-wip-limit {{_ 'enable-wip-limit'}} 
-        if isWipLimitEnabled  
+      li: a.js-enable-wip-limit {{_ 'enable-wip-limit'}}
+        if isWipLimitEnabled
           i.fa.fa-check
     if isWipLimitEnabled
       p
         input.wip-limit-value(type="number" value="{{ wipLimitValue }}" min="1" max="99" onkeydown="return false")
         input.wip-limit-apply(type="submit" value="{{_ 'apply'}}")
         input.wip-limit-error
-        
+
 template(name="wipLimitErrorPopup")
   .wip-limit-invalid
     p {{_ 'wipLimitErrorPopup-dialog-pt1'}}

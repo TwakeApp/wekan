@@ -29,7 +29,7 @@ Template.editor.onRendered(() => {
       search(term, callback) {
         const currentBoard = Boards.findOne(Session.get('currentBoard'));
         callback(currentBoard.activeMembers().map((member) => {
-          const username = Users.findOne(member.userId).username;
+          const username = Users.findOne(member.userId).profile.fullname;
           return username.includes(term) ? username : null;
         }).filter(Boolean));
       },

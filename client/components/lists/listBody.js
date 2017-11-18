@@ -199,7 +199,7 @@ BlazeComponent.extendComponent({
           }));
         },
         template(user) {
-          return user.username;
+          return user.profile.fullname;
         },
         replace(user) {
           toggleValueInReactiveArray(editor.members, user._id);
