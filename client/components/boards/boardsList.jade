@@ -16,6 +16,8 @@ template(name="boardList")
           else
             a.js-open-board.board-list-item(href="{{pathFor 'board' id=_id slug=slug}}")
               span.details
+                if hasNotification currentUser
+                  .notification
                 span.board-list-item-name= title
                 i.fa.js-star-board(
                   class="fa-star{{#if isStarred}} is-star-active{{else}}-o{{/if}}"

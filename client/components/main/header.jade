@@ -43,10 +43,10 @@ template(name="header")
 
         a#header-new-board-icon.js-create-board
           i.fa.fa-plus(title="Create a new board")
+        +headerUserBar
 
-        
 
-  
+
   if appIsOffline
     +offlineWarning
 

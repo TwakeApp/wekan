@@ -7,6 +7,8 @@ Meteor.publish('user-miniprofile', function(userId) {
       'profile.fullname': 1,
       'profile.avatarUrl': 1,
       'profile.group' : 1,
+      'profile.userId' : 1,
+      'profile.notificationBoard' : 1,
     },
   });
 });

@@ -190,7 +190,21 @@ Boards.helpers({
   activities() {
     return Activities.find({ boardId: this._id }, { sort: { createdAt: -1 } });
   },
-
+  hasNotification(user){
+      if(user){
+          var notificationByBoard = {};
+          var notifications = user.profile.notificationBoard;
+          if(notifications){
+              for(var i = 0;i<notifications.length;i++){
+                  if(notifications[i] == this._id){
+                      return true;
+                  }
+              }
+              return false;
+          }
+      }
+      return false;
+  },
   activeMembers() {
     return _.where(this.members, { isActive: true });
   },

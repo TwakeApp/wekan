@@ -1,13 +1,12 @@
 BlazeComponent.extendComponent({
   boards() {
-    return Boards.find({
-      archived: false,
-      'members.userId': Meteor.userId(),
-    }, {
-      sort: ['title'],
-    });
+      return boardsList = Boards.find({
+          archived: false,
+          'members.userId': Meteor.userId(),
+        }, {
+          sort: ['title'],
+        });
   },
-
   isStarred() {
     const user = Meteor.user();
     return user && user.hasStarred(this.currentData()._id);
@@ -17,7 +16,6 @@ BlazeComponent.extendComponent({
     const user = Meteor.user();
     return user && user.isInvitedTo(this.currentData()._id);
   },
-
   events() {
     return [{
       'click .js-add-board': Popup.open('createBoard'),

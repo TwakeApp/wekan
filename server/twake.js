@@ -1,5 +1,5 @@
 import { Random } from 'meteor/random'
-var urlTwakeApi = Meteor.settings.urlTwakeApi
+var urlTwakeApi = Meteor.settings.urlTwakeApi;
 var publicKey = Meteor.settings.publicKey;
 var privateKey = Meteor.settings.privateKey;
 
@@ -8,10 +8,10 @@ Meteor.methods({
 
         check(token,String);
         check(groupId,String);
-
         function createUsers(groupId,secret,base){
             param = base;
             param.data = {fields : ["userId","username","userImage"]};
+
             var resultGroup = HTTP.call('POST',urlTwakeApi+"group/users",{data:param});
             var data = resultGroup.data.data;
             for(var i=0;i<data.length;i++){
@@ -26,12 +26,14 @@ Meteor.methods({
                     profileUser.group = groupId;
                     profileUser.fullname = data[i].username;
                     profileUser.avatarUrl = data[i].userImage;
+                    profileUser.userId = data[i].id;
                 }
                 else{
                     var profileUser;
                     profileUser.group = groupId;
                     profileUser.fullname = data[i].username;
                     profileUser.avatarUrl = data[i].userImage;
+                    profileUser.userId = data[i].id;
                     Accounts.createUser({
                         username : data[i].id+"_"+groupId,
                         password: generatePsw(data[i].id,groupId,secret),
@@ -43,7 +45,6 @@ Meteor.methods({
                 Meteor.users.update(account, {$set: {profile: profileUser}});
             }
         }
-
         if(Meteor.userId() == null){
             var base = {
                 "global" : {

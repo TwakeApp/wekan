@@ -83,6 +83,10 @@ Users.attachSchema(new SimpleSchema({
     type: [String],
     optional: true,
   },
+  'profile.notificationBoard': {
+    type: [String],
+    optional: true,
+  },
   'profile.showCardsCountAt': {
     type: Number,
     optional: true,
@@ -100,6 +104,10 @@ Users.attachSchema(new SimpleSchema({
     optional: true,
   },
   'profile.group':{
+      type : String,
+      optional:true,
+  },
+  'profile.userId':{
       type : String,
       optional:true,
   },
@@ -162,7 +170,6 @@ Users.helpers({
   boards() {
     return Boards.find({ userId: this._id });
   },
-
   starredBoards() {
     const { starredBoards = [] } = this.profile;
     return Boards.find({ archived: false, _id: { $in: starredBoards } });
@@ -311,7 +318,20 @@ Users.mutations({
       },
     };
   },
-
+  addNotificationBoard(boardId){
+      return {
+        $addToSet: {
+          'profile.notificationBoard': boardId,
+        },
+      };
+  },
+  removeNotificationBoard(boardId){
+      return {
+        $pull: {
+          'profile.notificationBoard': boardId,
+        },
+      };
+  },
   addEmailBuffer(text) {
     return {
       $addToSet: {
@@ -338,7 +358,7 @@ Users.mutations({
 });
 
 Meteor.methods({
-  setUsername(username) {
+    setUsername(username) {
     check(username, String);
     const nUsersWithUsername = Users.find({ username }).count();
     if (nUsersWithUsername > 0) {

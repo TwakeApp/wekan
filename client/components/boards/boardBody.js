@@ -176,6 +176,11 @@ Template.boardBody.onRendered(function() {
   if (userIsMember() && currentBoard.lists().count() === 0) {
     self.openNewListForm();
   }
+  //remove notification for this board on current user
+  var currentUser = Meteor.user();
+  if(currentUser){
+      currentUser.removeNotificationBoard(Session.get('currentBoard'));
+  }
 });
 
 BlazeComponent.extendComponent({

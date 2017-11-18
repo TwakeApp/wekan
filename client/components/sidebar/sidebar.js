@@ -307,7 +307,6 @@ BlazeComponent.extendComponent({
   events() {
     return [{
       'keyup input'() {
-          console.log("keyUp");
         this.setError('');
       },
       'click .js-select-member'() {
