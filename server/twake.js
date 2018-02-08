@@ -20,6 +20,7 @@ Meteor.methods({
                     workspace : groupId,
                     fullname: data[i].firstname+" "+data[i].lastName,
                     avatarUrl : data[i].userImage,
+                    isAdmin : true,
                 };
                 var account = Accounts.findUserByUsername(data[i].id+"_"+groupId);
                 if(account){
