@@ -10,21 +10,22 @@ Meteor.methods({
         check(groupId,String);
         function createUsers(groupId,secret,base){
             param = base;
-            param.data = {fields : ["userId","username","userImage"]};
+            param.data = {fields : ["userId","username","userImage","lastname","firstname"]};
 
             var resultGroup = HTTP.call('POST',urlTwakeApi+"group/users",{data:param});
             var data = resultGroup.data.data;
+            console.log(data);
             for(var i=0;i<data.length;i++){
                 var profileUser = {
-                    group : groupId,
-                    fullname: data[i].username,
+                    workspace : groupId,
+                    fullname: data[i].firstname+" "+data[i].lastName,
                     avatarUrl : data[i].userImage,
                 };
                 var account = Accounts.findUserByUsername(data[i].id+"_"+groupId);
                 if(account){
                     var profileUser = account.profile;
                     profileUser.group = groupId;
-                    profileUser.fullname = data[i].username;
+                    profileUser.fullname = data[i].firstname+" "+data[i].lastName;
                     profileUser.avatarUrl = data[i].userImage;
                     profileUser.userId = data[i].id;
                 }
@@ -57,6 +58,8 @@ Meteor.methods({
             };
             var param = base;
             param.data = {token : token};
+            console.log(Meteor.settings.urlTwakeApi);
+            console.log(urlTwakeApi);
             var result = HTTP.call('POST',urlTwakeApi+"users/current/verify",{data:param});
             if(result.data.errors.length === 0){
                 var account = Accounts.findUserByUsername(result.data.data.userId+"_"+groupId);
